@@ -30,12 +30,12 @@ Development environment: IntelliJ IDEA
 
    c)-Compiling the file with javac. To compile the file containing the main method, use the javac command specifying its path (location of the folder you want to see the files).
    
-    command javac Main.java
+    javac Main.java
 
    d)- Run the compiled file with java.
    Once compiled, a file with a .class extension will be generated. Run this file and pass the argument required by the main method (in this case, the path required for each exercise)
 
-    command java Main PATH
+    java Main PATH
 
    e)- View the result in the console
    After executing the command, the output corresponding to the action programmed in the main method will be displayed.
