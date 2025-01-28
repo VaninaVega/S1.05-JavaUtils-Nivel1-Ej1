@@ -24,9 +24,6 @@ Development environment: IntelliJ IDEA
 
 -Use a system console to perform the steps described.
 
-//use el command javac Main.java
-//use the command java Main PATH
-
 2- a)- Open the system console. 
 
    b)-Navigate to the src directory. Use the cd command to change to the directory where the source files are located.
