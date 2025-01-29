@@ -1,6 +1,6 @@
 # S1.05-JavaUtils-Nivel1-Ej1
 
-#Summary: exercise description
+## Summary: exercise description
 
 Create a class that alphabetically lists the contingency of a directory by parameter.
 
@@ -14,7 +14,7 @@ Programming language: Java 22
 
 Development environment: IntelliJ IDEA
 
-#How to run it
+## How to run it
 
 1-Prerequisites:
 
