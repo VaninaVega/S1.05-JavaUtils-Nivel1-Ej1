@@ -1,4 +1,6 @@
 import java.io.File;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
 
@@ -10,39 +12,35 @@ public class Main {
             // Obtengo el directorio desde los argumentos
             String directoryPath = args[0];
             // Listo y muestro el contenido del directorio
-            listContent(directoryPath);
+            listContent(new File(directoryPath), " ");
         }
     }
 
-    public static void listContent(String path) {
-        File directory = new File(path);
+    public static void listContent(File directory, String tabulador) {
 
+        tabulador += "   ";
         // Verifico si la ruta es válida
         if (!directory.exists() || !directory.isDirectory()) {
-            System.out.println("Specified directory does not exist or is invalid: " + path);
+            System.out.println("Specified directory does not exist or is invalid: ");
+            return;
         } else {
 
             // Obtengo los archivos y carpetas del directorio
             File[] content = directory.listFiles();
 
             if (content == null || content.length == 0) {
-                System.out.println("Drectory is empty.");
+                System.out.println("Drectory is empty." + directory.getAbsolutePath());
             } else {
                 // Ordeno los nombres alfabéticamente
-                for (int i = 0; i < content.length - 1; i++) {
-                    for (int j = i + 1; j < content.length; j++) {
-                        if (content[i].getName().compareToIgnoreCase(content[j].getName()) > 0) {
-                            File temp = content[i];
-                            content[i] = content[j];
-                            content[j] = temp;
-                        }
-                    }
-                }
+                Arrays.sort(content, Comparator.comparing(File::getName));
 
-                // Muestro el contenido del directorio
-                System.out.println("Directory content (" + directory.getPath() + ") sorted alphabetically: ");
-                for (int i = 0; i < content.length; i++) {
-                    System.out.println(content[i].getName());
+                for (File f : content) {
+                    if (f.isDirectory()) {
+                        System.out.println(tabulador + "D " + f.getName());
+                        listContent(f, tabulador);
+                    } else {
+                        System.out.println(tabulador + "F " + f.getName());
+                    }
                 }
             }
         }
