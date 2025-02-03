@@ -40,7 +40,7 @@ public class Main {
                 }
 
                 // Muestro el contenido del directorio
-                System.out.println("Directory Contents (" + directory.getPath() + ") sorted alphabetically: ");
+                System.out.println("Directory content (" + directory.getPath() + ") sorted alphabetically: ");
                 for (int i = 0; i < content.length; i++) {
                     System.out.println(content[i].getName());
                 }
